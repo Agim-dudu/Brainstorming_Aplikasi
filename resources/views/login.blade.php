@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Slider Login / Registration Form</title>
+    <title> Login | Registration </title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('/') }}assets/login-register/style.css">
 </head>
@@ -97,14 +97,14 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1 class="title">Hello <br> friends</h1>
-                    <p>if Yout have an account, login here and have fun</p>
+                    <h1 class="title">Welcome <br> di AMC Tech</h1>
+                    <p>if Yout have an account, login here and happy shopping</p>
                     <button class="ghost" id="login">Login
                         <i class="lni lni-arrow-left login"></i>
                     </button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1 class="title">Start yout <br> journy now</h1>
+                    <h1 class="title">Welcome <br> join now</h1>
                     <p>if you don't have an account yet, join us and start your journey.</p>
                     <button class="ghost" id="register">Register
                         <i class="lni lni-arrow-right register"></i>

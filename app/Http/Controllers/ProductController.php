@@ -63,9 +63,7 @@ class ProductController extends Controller
     {
         $data = $request->validated();
 
-        // Simpan file gambar jika diunggah
-        // Upload gambar jika ada
-        if ($request->hasFile('photo')) {  // <-- Perubahan disini, mengganti 'gambar' menjadi 'photo'
+        if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('public/images/product');
             $data['photo'] = basename($path);
         }
@@ -80,7 +78,6 @@ class ProductController extends Controller
     {
         $products = Product::findOrFail($id);
         return view('update_product', compact('products'));
-
     }
 
     public function update(ProductRequest $request, $id)
@@ -90,6 +87,7 @@ class ProductController extends Controller
 
         // Update file gambar jika diunggah
         if ($request->hasFile('photo')) {
+            
             // Hapus file gambar lama dari penyimpanan (storage)
             Storage::delete('public/images/product/' . $product->photo);
 
@@ -117,5 +115,4 @@ class ProductController extends Controller
 
         return redirect()->route('admin.tabel_data.index')->with('success', 'Produk berhasil dihapus!');
     }
-
 }

@@ -8,7 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg bg-primary  text-light fixed">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="#">AMC Tech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active text-light" aria-current="page" href="{{ route('product') }}">Home</a>
+                    @php
+                        if (Auth::user()->is_admin == 1) {
+                    @endphp
+                        <a class="nav-link text-light" aria-current="page" href="{{route('admin.tambah_data.create')}}">Tambah Data</a>
+                        <a class="nav-link text-light" aria-current="page" href="{{route('admin.tabel_data.index')}}">Table Data</a>
+                    @php
+                        }
+                    @endphp
+                </div>
+            </div>
+            <div class="text-end d-flex align-items-center">
+                <div class="user me-3">
+                    Halo, {{ Auth::user()->name }}
+                </div>
+                <div class="logout">
+                    <a href="{{ route('login.logout') }}" class="btn btn-danger text-light">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid my-2">
         @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}

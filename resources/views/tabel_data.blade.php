@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-primary mx-4 my-2 text-light rounded">
+    <nav class="navbar navbar-expand-lg bg-primary  text-light fixed">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="#">AMC Tech</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -37,16 +37,16 @@
             </div>
             <div class="text-end d-flex align-items-center">
                 <div class="user me-3">
-                    {{-- Halo, {{ Auth::user()->name }} --}}
+                    Halo, {{ Auth::user()->name }}
                 </div>
                 <div class="logout">
-                    <a href="" class="btn btn-danger text-light">Logout</a>
+                    <a href="{{ route('login.logout') }}" class="btn btn-danger text-light">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="container text-center my-4">
+    <div class="container-fluid text-center my-4">
         <div class="row">
             @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -85,7 +85,8 @@
                                             alt="gambar product"></td>
                                     <td>{{ $product->price }}</td>
                                     <td>
-                                        <a href="{{route('admin.product.edit', $product->id)}}" class="btn btn-primary btn-lg">Edit</a>
+                                        <a href="{{route('admin.product.edit', $product->id)}}"
+                                            class="btn btn-primary btn-lg">Edit</a>
                                         <form action="{{route('admin.product.destroy', $product->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -130,8 +131,8 @@
                                     <td>
                                         <a href="" class="btn btn-primary btn-lg">Edit</a>
                                         <form action="" method="POST">
-                                            @csrf
-                                            @method('DELETE')
+                                            {{-- @csrf
+                                            @method('DELETE') --}}
                                             <button style="margin-top:10px;" class="btn btn-danger"
                                                 onclick="confirm('anda yakin ingin menghapus data ini? ')"
                                                 type="submit">Hapus</button>

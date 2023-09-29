@@ -31,7 +31,6 @@ class UserSeeder extends Seeder
         ]);
         $user2->save();
 
-        // Menambahkan lebih banyak data pengguna jika diperlukan
         $user3 = new User([
             'name' => 'cindy',
             'email' => 'cindy@gmail.com',
